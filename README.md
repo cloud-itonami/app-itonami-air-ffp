@@ -102,7 +102,7 @@ git URL 固定 SHA。**GitHub API ではなく git に訊いた**（API は実�
 nested install を `EALLOWSCRIPTS` で拒否する（旧 quickstart §6 が記録済み。
 今回の移行はこれを直していない）。
 
-## いま在るもの — 28 ファイル
+## いま在るもの — 29 ファイル
 
 | 面 | ファイル |
 |---|---|
@@ -114,7 +114,7 @@ nested install を `EALLOWSCRIPTS` で拒否する（旧 quickstart §6 が記�
 | Worker 設定 | `wrangler.jsonc` |
 | ドメインライブラリ（移行対象外） | `kotoba/`（7 ファイル） |
 | actor 記述子 | `kotodama.jsonld` |
-| 由来・権利・識別 | `NOTICE` / `README.edn` / `migration.edn` / `MIGRATION-TODO.md` |
+| 由来・権利・識別 | `NOTICE` / `README.edn` / `migration.edn` / `MIGRATION-TODO.md` / `blueprint.edn` |
 | 文書 | `README.md` / `docs/operator-quickstart.md` / `docs/adr/0001-*.edn` |
 
 **appview の TypeScript は 0 本、正本言語（`.cljs`/`.cljc`）が 4 本。**
