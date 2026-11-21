@@ -36,12 +36,12 @@
   ],
   "routes": [
     {
-      "pattern": "a1rffp01.etzhayyim.com/*",
-      "zone_name": "etzhayyim.com"
+      "pattern": "a1rffp01.itonami.app/*",
+      "zone_name": "itonami.app"
     },
     {
-      "pattern": "air-ffp.etzhayyim.com/*",
-      "zone_name": "etzhayyim.com"
+      "pattern": "air-ffp.itonami.app/*",
+      "zone_name": "itonami.app"
     }
   ]
 }

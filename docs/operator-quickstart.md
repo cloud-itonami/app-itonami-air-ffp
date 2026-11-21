@@ -340,7 +340,7 @@ cd "$REPO" && npx wrangler deploy
 ```
 
 **この walk では deploy していない。** そして route が指すホストは解決しない:
-`air-ffp.etzhayyim.com` / `a1rffp01.etzhayyim.com` とも `dig +short` が空。
+`air-ffp.itonami.app` / `a1rffp01.itonami.app` とも `dig +short` が空。
 deploy が成功しても誰も到達できない。`/xrpc/` の中継先 `mcp.etzhayyim.com` も
 同様なので、到達できたとしても中継は **502 を返す**（成功と同じ形で隠さない）。
 

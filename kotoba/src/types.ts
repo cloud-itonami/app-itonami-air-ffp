@@ -43,7 +43,7 @@ export const TIER_SUMMARY_COLLECTION = "com.etzhayyim.apps.airFfp.tierSummary";
 export const MEMBER_PROFILE_INNER_TYPE = "com.etzhayyim.apps.airFfp.memberProfile";
 export const MILES_LEDGER_INNER_TYPE = "com.etzhayyim.apps.airFfp.milesLedger";
 
-export const FFP_DID_PREFIX = "did:web:air-ffp.etzhayyim.com:" as const;
+export const FFP_DID_PREFIX = "did:web:air-ffp.itonami.app:" as const;
 
 // ─── tierBenefit (PLAINTEXT, public program catalog) ────────────────
 
