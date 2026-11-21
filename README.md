@@ -182,12 +182,12 @@ capability の印が効くのはもう 1 つ理由があって、**それが出�
 決定論的 audit（`kotoba-lang/design-quality`）で **100.00 / 100（gate 95、
 `--extra-axes` の 12 軸でも 100.00）**。
 
-## 呼び先が 1 つも解決しない（移行では直らない）
+## 呼び先に 1 つも到達できない（移行では直らない）
 
 | ホスト | 役割 | `dig +short` |
 |---|---|---|
-| `air-ffp.etzhayyim.com` | 公開ホスト（wrangler の route） | **空（NXDOMAIN）** |
-| `a1rffp01.etzhayyim.com` | 同（nanoid 側） | **空（NXDOMAIN）** |
+| `air-ffp.itonami.app` | 公開ホスト（wrangler の route） | 解決する。応答は **522**（2026-11-21 実測） |
+| `a1rffp01.itonami.app` | 同（nanoid 側） | 解決する。応答は **522**（2026-11-21 実測） |
 | `mcp.etzhayyim.com` | `/xrpc/:nsid` の中継先 | **空（NXDOMAIN）** |
 
 deploy 先も中継先も、いま存在しない。`/xrpc/` は到達できなければ **502 を返す**
@@ -234,7 +234,7 @@ deploy 先も中継先も、いま存在しない。`/xrpc/` は到達できな�
 
 ## 残っている欠陥（移行では直っていない）
 
-1. **ホストが 3 つとも NXDOMAIN**（上記）。deploy するか retire するかは別の決定。
+1. **route の 2 ホストは応答しない（522）、中継先は NXDOMAIN**（上記）。deploy するか retire するかは別の決定。
 2. **`MIGRATION-TODO.md` のチェックボックス 7 件が未チェック**のまま。憲章適合の
    手動レビューは未実施であると文書自身が書いている。
 3. **`kotoba/` のテスト 8 本が走らない**（npm の `EALLOWSCRIPTS`）。
@@ -257,3 +257,14 @@ exit 0 = 全一致 / 1 = 食い違い / **2 = 判定できなかった**（0 と
 ので、ファイル末尾に何を足しても緑のままになる —— それ自体が落ちようのない
 検査だった（実測と 3 通りの mutation は quickstart §2）。
 テスト・ビルド・smoke は `docs/operator-quickstart.md`。
+
+## upstream からの分岐（2026-11-21、JUN-1410）
+
+ドメインを `itonami.app` に統一する決定に合わせて、wrangler の route と `did:web` の識別子を
+`etzhayyim.com` から `itonami.app` へ移した。この app は未 deploy で、旧い識別子が解決したことは一度も無い。
+新しいホスト名（`a1rffp01.itonami.app`、`air-ffp.itonami.app`）は `itonami.app` のワイルドカードで名前が引けるが、
+Worker が bind されていないので応答は 522 になる（2026-11-21 実測）。
+
+upstream の byte と一致しなくなったファイル: `kotodama.jsonld`。
+検証器（`scripts/`）の sha256 と byte 数は新しい内容に合わせてある。
+変えていないもの: ほかのサービスのホスト名、lexicon の名前空間、`docs/adr/`（当時の記録）。

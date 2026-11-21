@@ -1,6 +1,6 @@
 {
   "@context": "https://etzhayyim.com/ns/kotodama/v1",
-  "@id": "did:web:air-ffp.etzhayyim.com",
+  "@id": "did:web:air-ffp.itonami.app",
   "name": "air-ffp",
   "nanoid": "a1rffp01",
   "project": "air-ffp",

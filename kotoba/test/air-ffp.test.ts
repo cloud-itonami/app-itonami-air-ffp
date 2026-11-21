@@ -14,7 +14,7 @@ import {
   coverage,
 } from "../src/index.js";
 
-const OWNER = "did:web:air-ffp.etzhayyim.com";
+const OWNER = "did:web:air-ffp.itonami.app";
 
 describe("air-ffp kotoba (kotoba-E2E split)", () => {
   let e: any;
@@ -53,7 +53,7 @@ describe("air-ffp kotoba (kotoba-E2E split)", () => {
       const ok = await enrollMember(e, { memberNumber: "M001", firstName: "Aki", lastName: "Sato", email: "aki@example.com", carrierCode: "NH", tierCode: "gold", milesBalance: 64000, qualifyingMiles: 51000, nationality: "JP" });
       expect(ok.status).toBe("enrolled");
       expect(ok.keyId).toBeTruthy();
-      expect(ok.memberDid).toContain("air-ffp.etzhayyim.com");
+      expect(ok.memberDid).toContain("air-ffp.itonami.app");
       expect((await enrollMember(e, { memberNumber: "MX", firstName: "A", lastName: "B", email: "a@b", carrierCode: "NH", milesBalance: -5 })).status).toBe("rejected");
       const got = await getMember(e, { memberNumber: "M001" });
       expect(got.member?.email).toBe("aki@example.com");
