@@ -339,8 +339,8 @@ tree に `.wasm` は 1 つも無いので inert。移行では触っていない
 cd "$REPO" && npx wrangler deploy
 ```
 
-**この walk では deploy していない。** そして route が指すホストは解決しない:
-`air-ffp.itonami.app` / `a1rffp01.itonami.app` とも `dig +short` が空。
+**この walk では deploy していない。** そして route が指すホストは応答しない:
+`air-ffp.itonami.app` / `a1rffp01.itonami.app` とも名前は引けるが 522 を返す（2026-11-21 実測）。
 deploy が成功しても誰も到達できない。`/xrpc/` の中継先 `mcp.etzhayyim.com` も
 同様なので、到達できたとしても中継は **502 を返す**（成功と同じ形で隠さない）。
 
